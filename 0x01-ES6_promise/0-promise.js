@@ -11,8 +11,10 @@ function getResponseFromAPI() {
 
 getResponseFromAPI()
   .then((response) => {
+    /* eslint-disable no-console */
     console.log(response);
   })
   .catch((error) => {
+    /* eslint-disable no-console */
     console.error(error);
   });
