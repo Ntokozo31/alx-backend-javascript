@@ -1,27 +1,27 @@
 const fs = require('fs');
 
 function countStudents(filePath) {
-    try {
-        const data = fs.readFileSync(filePath, 'utf8');
-        const lines = data.split('\n').filter(line => line.trim() !== '');
+  try {
+      const data = fs.readFileSync(filePath, 'utf8');
+      const lines = data.split('\n').filter(line => line.trim() !== '');
 
-        const studentCounts = {};
+      const studentCounts = {};
 
-        for (let i = 1; i < lines.length; i++) {
-            const fields = lines[i].split(',');
-            const firstName = fields[0].trim();
-            const field = fields[1].trim();
+      for (let i = 1; i < lines.length; i++) {
+          const fields = lines[i].split(',');
+          const firstName = fields[0].trim();
+          const field = fields[1].trim();
 
             // Skip invalid entries
-            if (!firstName || !field) continue;
+          if (!firstName || !field) continue;
 
             // Initialize the field in the object if it doesn't exist
-            if (!studentCounts[field]) {
-                studentCounts[field] = {
-                    count: 0,
-                    names: []
-                };
-            }
+          if (!studentCounts[field]) {
+              studentCounts[field] = {
+                  count: 0,
+                  names: []
+              };
+          }
 
             // Increment the count and add the student's name
             studentCounts[field].count += 1;
